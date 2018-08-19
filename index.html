@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Title</title>
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <link rel="stylesheet" href="css/upimg.css">
+</head>
+<body>
+<div class="form-group">
+    <div class="col-sm-10 ylimg" id="imgUp">
+
+    </div>
+</div>
+<script src="js/upimg.js">
+</script>
+<script>
+    var imageArray=ImgUpLib.init({el:"#imgUp",
+        fileType         : ["jpg","png","bmp","jpeg"],   // 上传文件的类型
+        fileSize         : 1024 * 1024 * 10,                  // 上传文件的大小 10M
+        imgMaxSize:5});
+    console.log('imageAeeay',imageArray)
+</script>
+</body>
+</html>
