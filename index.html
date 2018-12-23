@@ -20,7 +20,34 @@
         fileType         : ["jpg","png","bmp","jpeg"],   // 上传文件的类型
         fileSize         : 1024 * 1024 * 10,                  // 上传文件的大小 10M
         imgMaxSize:5});
-    console.log('imageAeeay',imageArray)
+    console.log('imageAeeay',imageArray);
+
+  function submit(){//上传图片
+      
+      
+    var formData = new FormData();
+      imageArray.forEach(function(item){ //file 对象添加进formData
+            formData.append('file',item);    
+      })
+    
+
+   $.ajax({
+        type: "POST",
+        url:"file/upload",
+        data:formData,
+        contentType: false,  
+        processData: false, //禁止序列化防止报错
+        success: function(data) {
+            data = JSON.parse(data);
+            if(data.success){
+                alert("上传成功");
+            }else{
+                alert(data.codes);
+            }
+        }
+    });
+}
+
 </script>
 </body>
 </html>
